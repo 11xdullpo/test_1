@@ -1,3 +1,4 @@
+// gradle 버전 8.3
 // 아래 항목을 의존성 으로 받겠다
 buildscript{
     // ext : 전역 변수명
@@ -6,7 +7,6 @@ buildscript{
     }
     repositories {
         mavenCentral()
-        jcenter()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -44,14 +44,18 @@ repositories {
 }
 
 /*
-gradle 버전 7.부터는 compile 사용 X 하면 안됨
+gradle 버전 7.x 이하 spring-boot 추가
 compile('org.springframework.boot:spring-boot-starter-web')
 testCompile('org.springframework.boot:spring-boot-starter-test')
+gradle 버전 5.x 이하
+implementation 'org.projectlombok:lombok'
 */
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.0'
+    implementation 'org.springframework.boot:spring-boot-starter-web'/* spring-boot 사용*/
+    compileOnly 'org.projectlombok:lombok' /* lombok 사용*/
+    annotationProcessor 'org.projectlombok:lombok'/* lombok 사용*/
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'/* spring-boot test 사용*/
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.0'/* spring-boot test 사용*/
 }
 
 test{
