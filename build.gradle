@@ -56,6 +56,10 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'/* lombok 사용*/
     testImplementation 'org.springframework.boot:spring-boot-starter-test'/* spring-boot test 사용*/
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.0'/* spring-boot test 사용*/
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'com.h2database:h2'
+
+
 }
 
 test{
